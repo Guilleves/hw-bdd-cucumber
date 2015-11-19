@@ -35,5 +35,6 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
+  table_rows = page.body.scan("<tr>").count - 1
+  table_rows.should == Movie.count
 end
